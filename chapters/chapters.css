@@ -1,0 +1,75 @@
+
+* {
+  /* Typography */
+  --main-font: 'Slabo 27px', serif;
+  
+  /* Calculation */
+  --responsive: calc((var(--min-font) * 1px) + (var(--max-font) - var(--min-font)) * ((100vw - 420px) / (1200 - 420))); /* Ranges from 421px to 1199px */
+}
+
+body{
+    background-image: url("/images/bgimg.png");
+    background-size: 100% auto;
+    background-attachment: fixed;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 2000px;
+    margin: 0px auto;
+    text-align: center;
+}
+
+.main-content {
+    overflow:hidden;
+      position: relative;
+      
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-flow: column;
+      
+      height: 100vh;
+      
+      color: #fff;
+      text-align: center;
+  }
+
+  h1 {
+    /* Set max and min font sizes */
+    --max-font: 40;
+    --min-font: 20;
+    font-family: var(--main-font);
+    font-size: var(--responsive);
+  }
+
+  
+  
+  .vignette{
+    position:absolute;
+    width:100%; height:100%;
+    box-shadow:inset 0px 0px 150px 20px black;
+    mix-blend-mode: multiply;
+    -webkit-animation: vignette-anim 3s infinite; /* Safari 4+ */
+    -moz-animation:    vignette-anim 3s infinite; /* Fx 5+ */
+    -o-animation:      vignette-anim 3s infinite; /* Opera 12+ */
+    animation:         vignette-anim 3s infinite; /* IE 10+, Fx 29+ */
+  }
+  
+  .noise {
+      z-index: 100;
+      position: absolute;
+      top: 0;
+      left: 0;
+      
+      width: 100%;
+      height: 100%;
+      
+      pointer-events: none;
+      opacity: .15;
+  }
+  
+  .line{
+    position:absolute;
+    height:100%; width:1px;
+    opacity:0.1;
+    background-color:#000;
+  }
